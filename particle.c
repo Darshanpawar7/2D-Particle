@@ -226,3 +226,23 @@ void renderParticlesUsingBST(ParticleList *list) {
     inorderBSTRender(root);
     freeBST(root);
 }
+
+
+
+// New Assignment Function #1
+// Apply a global force (like wind/gravity) to every particle
+void applyGlobalForce(ParticleList *list, float forceX, float forceY) {
+    ParticleCell *curr = list->head;
+
+    while (curr) {
+        curr->data.dx += forceX;
+        curr->data.dy += forceY;
+
+        printf("Applied Force -> New Velocity: (%d, %d)\n",
+               curr->data.dx, curr->data.dy);
+
+        curr = curr->next;
+    }
+}
+
+
