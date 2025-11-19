@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "particle.h"
+#include "particle.h" //including user defined header file 
 
 // Input helper: Add particle
 void promptAddParticle(ParticleList *list) {
@@ -108,3 +108,4 @@ int main() {
     cleanupParticles(&system);
     return 0;
 }
+
