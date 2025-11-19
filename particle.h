@@ -40,4 +40,9 @@ void displayFrame(ParticleSystem *system);
 
 void renderParticlesUsingBST(ParticleList *list);
 
+// NEW FUNCTION PROTOTYPE ADDED
+void applyGlobalForce(ParticleList *list, float forceX, float forceY);
+
 #endif
+
+
