@@ -1,40 +1,43 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 
-#define SCENE_WIDTH 800
-#define SCENE_HEIGHT 600
+#define SCENE_WIDTH 80
+#define SCENE_HEIGHT 24
+#define FRAME_DELAY 100000  // microseconds (0.1 seconds)
 
-// Particle structure
 typedef struct Particle {
-    int x, y;       // Position
-    int dx, dy;     // Velocity
-    int lifetime;   // Remaining life
+    int x, y;
+    int dx, dy;
+    int lifetime;
 } Particle;
 
-// Linked List Node
 typedef struct ParticleCell {
     Particle data;
     struct ParticleCell *prev, *next;
 } ParticleCell;
 
-// Linked List
 typedef struct ParticleList {
     ParticleCell *head, *tail;
     int size;
 } ParticleList;
 
-// Core functions
+typedef struct ParticleSystem {
+    ParticleList list;
+    char frame[SCENE_HEIGHT][SCENE_WIDTH];
+} ParticleSystem;
+
+void initParticleSystem(ParticleSystem *system);
 void initParticleList(ParticleList *list);
 void addParticle(ParticleList *list, Particle p);
 void removeParticle(ParticleList *list, ParticleCell *cell);
-void updateParticles(ParticleList *list);
+void updateParticles(ParticleSystem *system);
 void cleanupParticles(ParticleList *list);
 
-// New assignment functions
-void applyGlobalForce(ParticleList *list, float forceX, float forceY);
-void clearAllParticles(ParticleList *list);
+void renderAnimation(ParticleSystem *system);
+void clearFrame(ParticleSystem *system);
+void drawParticles(ParticleSystem *system);
+void displayFrame(ParticleSystem *system);
 
-// BST rendering
 void renderParticlesUsingBST(ParticleList *list);
 
 #endif
