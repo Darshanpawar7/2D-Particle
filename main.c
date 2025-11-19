@@ -35,6 +35,18 @@ void promptDeleteParticle(ParticleList *list) {
     }
 }
 
+void promptApplyGlobalForce(ParticleList *list) {
+    float fx, fy;
+    printf("Enter global forceX and forceY:\n");
+    if (scanf("%f %f", &fx, &fy) != 2) {
+        printf("Invalid input\n");
+        while (getchar() != '\n');
+        return;
+    }
+    applyGlobalForce(list, fx, fy);
+    printf("Global force applied.\n");
+}
+
 int main() {
     ParticleSystem system;
     initParticleSystem(&system);
@@ -43,7 +55,16 @@ int main() {
     int running = 1;
 
     while (running) {
-        printf("\nMenu:\n1. Add Particle\n2. Delete Particle\n3. Update Particles\n4. Render Animation\n5. Render Using BST\n6. Exit\nEnter choice: ");
+        printf("\nMenu:\n");
+        printf("1. Add Particle\n");
+        printf("2. Delete Particle\n");
+        printf("3. Update Particles\n");
+        printf("4. Render Animation\n");
+        printf("5. Render Using BST\n");
+        printf("6. Apply Global Force\n");   // ⭐ NEW OPTION
+        printf("7. Exit\n");
+        printf("Enter choice: ");
+
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input\n");
             while (getchar() != '\n');
@@ -68,6 +89,9 @@ int main() {
                 renderParticlesUsingBST(&system.list);
                 break;
             case 6:
+                promptApplyGlobalForce(&system.list);   // CALLS NEW FUNCTION
+                break;
+            case 7:
                 running = 0;
                 break;
             default:
