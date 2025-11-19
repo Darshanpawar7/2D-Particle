@@ -1,6 +1,11 @@
 # 2D-Particle
 Jackfruit Particle System Project (C Language)
 
+NAMES AND SRNS: 
+DARSHAN P PAWAR(PES2UG24CS143)
+DEEPTHI N REDDY(PES2UG24CS149)
+GANAVI PURUSHOTHAMA(PES2UG24CS167)
+
 Files:
 - particle.h     (header definitions)
 - particle.c     (implementation)
