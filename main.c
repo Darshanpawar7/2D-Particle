@@ -89,7 +89,7 @@ int main() {
                 renderParticlesUsingBST(&system.list);
                 break;
             case 6:
-                promptApplyGlobalForce(&system.list);   // CALLS NEW FUNCTION
+                promptApplyGlobalForce(&system.list);   // CALLS NEW FUNCTION.
                 break;
             case 7:
                 running = 0;
@@ -102,4 +102,5 @@ int main() {
     cleanupParticles(&system.list);
     return 0;
 }
+
 
