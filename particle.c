@@ -144,7 +144,7 @@ void displayFrame(ParticleSystem *system) {
     for (int i = 0; i < SCENE_WIDTH; i++) printf("-");
     printf("+\n");
     
-    // Display particle count and info
+    // Display particle count and information
     printf("Active Particles: %d | Press Ctrl+C to stop animation\n", system->list.size);
 }
 
@@ -244,5 +244,6 @@ void applyGlobalForce(ParticleList *list, float forceX, float forceY) {
         curr = curr->next;
     }
 }
+
 
 
